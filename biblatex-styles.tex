@@ -6,7 +6,7 @@
 \usepackage{minted}
 \newcounter{code}
 \renewcommand{\thecode}{\arabic{code}.~}
-\newcommand{\code}[3]{%
+\newcommand{\code}[2]{%
 	\only<+>{%
 		\stepcounter{code}%
 		\begin{block}{\thecode#1}%
@@ -93,7 +93,7 @@
 \begin{frame}
 	\frametitle{Plusieurs niveaux d'adaptation}
 	\begin{overprint}
-		\code{Commandes Bib\LaTeX\ à redéfinir}{commandes}
+		\code{Commandes BibLaTeX à redéfinir}{chaines}
 		\code{Chaînes de langues à redéfinir}{chaines}
 		\code{Formatage des champs}{champs}
 		\code{Formatage des noms}{noms}
@@ -111,7 +111,7 @@
 		\code{Tester le type d'entrée}{ifentrytype}
 		\code{Tester si l'entrée a déjà été citée}{ifciteseen}
 		\code{Tester si l'entrée est la seule d'un auteur}{ifsingletitle}
-		\only<+>{La liste est longue \ldot voir la documentation}
+		\only<+>{La liste est longue \ldots voir la documentation}
 	\end{overprint}
 \end{frame}
 \begin{frame}
