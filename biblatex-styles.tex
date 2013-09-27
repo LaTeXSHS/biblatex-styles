@@ -1,0 +1,22 @@
+\documentclass{beamer}
+\usepackage{fontspec,polyglossia,xunicode,hyperref}
+\setmainfont{Linux Libertine O}
+\setmainlanguage{french}
+\usepackage{minted}
+\newcommand{\code}[3]{\only<#1>{\begin{block}{#2}\inputminted{latex}{code/#3.tex}\end{block}}}
+\author{Maïeul Rouquette}
+\date{Rencontres \LaTeX\ et SHS}
+\title{Personnaliser les styles biblatex}
+\institute{Université de Lausanne --- IRSB}
+
+\usetheme{Darmstadt}
+\begin{document}
+
+
+\begin{frame}
+	\titlepage
+	\vfill
+	{\tiny Licence Creative Commons France 3.0 - Paternité - Partage à l'identique}
+\end{frame}
+
+\end{document}
