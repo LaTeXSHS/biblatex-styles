@@ -62,10 +62,12 @@
 	\only<2-4>{
 		\begin{description}
 			\alertdesc{Driver}{Description du formatage d'un type d'entrée}
-			\alertdesc{Macro}{Sous description de formatage. Bien souvent correspond à une unité}
+			\alertdesc{Macro}{Sous description de formatage. Bien souvent correspond à une ou plusieurs unité.}
+			\alertdesc{Unité}{Sous division d'une référence bibliographique. Bien souvent séparé par des signes bibliographiques}
+			\alertdesc{Cmd. de ponctuation}{Commande spécifique à Bib\LaTeX\ permettant d'afficher un signe de ponctuation tout en prévenant le doublement}
 		\end{description}
 	}
-	\only<3->{
+	\only<6->{
 		\begin{description}
 			\alertdesc{Name}{Tout champ correspondant à une personne morale ou physique}
 			\alertdesc{List}{Tout champ pouvant contenir des valeurs séparés par \enquote{and} (sauf nom)}
@@ -97,7 +99,7 @@
 \begin{frame}
 	\frametitle{Quelques commandes utiles}
 	\begin{overprint}
-		\code{Imprimer fiel / liste / name}{imprimer-champ}
+		\code{Imprimer field / liste / name}{imprimer-champ}
 		\code{Tester la présence d'un champ}{iffieldundef}
 		\code{Tester la valeur d'un champ}{iffielequals}
 		\code{Tester le type d'entrée}{ifentrytype}
