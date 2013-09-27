@@ -6,6 +6,7 @@
 \usepackage{minted}
 \newcounter{code}
 \renewcommand{\thecode}{\arabic{code}.~}
+\newenvironment{codes}{\only<1>{\setcounter{code}{0}}\begin{overprint}}{\end{overprint}}
 \newcommand{\code}[2]{%
 	\only<+>{%
 		\stepcounter{code}%
@@ -83,16 +84,16 @@
 \end{frame}
 \begin{frame}
 	\frametitle{Alias}
-	\begin{overprint}
+	\begin{codes}
 		\code{Entre fichiers}{alias-fichiers}
 		\code{Entre formatage de champs, noms, listes}{alias-champ-formatage}
 		\code{Entre formatage de type}{alias-type-formatage}
 		\code{Entre affection de de type champs (Biber)}{alias-affectation}
-	\end{overprint}
+	\end{codes}
 \end{frame}
 \begin{frame}
 	\frametitle{Plusieurs niveaux d'adaptation}
-	\begin{overprint}
+	\begin{codes}
 		\code{Commandes BibLaTeX à redéfinir}{chaines}
 		\code{Chaînes de langues à redéfinir}{chaines}
 		\code{Formatage des champs}{champs}
@@ -100,11 +101,11 @@
 		\code{Formatage des listes}{listes}
 		\code{Macros}{macros}
 		\code{Drivers}{drivers}
-	\end{overprint}
+	\end{codes}
 \end{frame}
 \begin{frame}
 	\frametitle{Quelques commandes utiles}
-	\begin{overprint}
+	\begin{codes}
 		\code{Imprimer field / liste / name}{imprimer-champs}
 		\code{Tester la présence d'un champ}{iffieldundef}
 		\code{Tester la valeur d'un champ}{iffieldequals}
@@ -112,7 +113,7 @@
 		\code{Tester si l'entrée a déjà été citée}{ifciteseen}
 		\code{Tester si l'entrée est la seule d'un auteur}{ifsingletitle}
 		\only<+>{La liste est longue \ldots voir la documentation}
-	\end{overprint}
+	\end{codes}
 \end{frame}
 \begin{frame}
 	\frametitle{Pour aller plus loins\ldots}
