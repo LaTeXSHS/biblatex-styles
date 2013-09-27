@@ -1,0 +1,14 @@
+\DeclareListFormat{location}{%
+  \usebibmacro{list:delim}{#1}% Permet de déf. les sép.
+  #1\isdot%Affiche concrètement la liste
+  \usebibmacro{list:andothers}}
+\newbibmacro*{list:delim}[1]{%
+  \ifnumgreater{\value{listcount}}{\value{liststart}}
+    {\ifboolexpr{
+       test {\ifnumless{\value{listcount}}{\value{liststop}}}
+       or
+       test \ifmoreitems
+     }
+       {\multilistdelim}
+       {\lbx@finallistdelim{#1}}}
+    {}}

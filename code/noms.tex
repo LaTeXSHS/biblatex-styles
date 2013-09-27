@@ -1,0 +1,13 @@
+% #1 = last name
+% #2 = last name (initials)
+% #3 = first name
+% #4 = first name (initials)
+% #5 = name prefix, a.k.a. 'von part'
+% #6 = name prefix (initials)
+% #7 = name affix, a.k.a. 'junior part'
+% #8 = name affix (initials)
+\DeclareNameFormat{first-last}{%
+  \iffirstinits
+    {\usebibmacro{name:first-last}{#1}{#4}{#5}{#7}}
+    {\usebibmacro{name:first-last}{#1}{#3}{#5}{#7}}%
+  \usebibmacro{name:andothers}}

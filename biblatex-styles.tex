@@ -2,11 +2,17 @@
 \usepackage{fontspec,polyglossia,xunicode,hyperref}
 \setmainfont{Linux Libertine O}
 \setmainlanguage{french}
+
 \usepackage{minted}
-\newcommand{\code}[3]{\only<#1>{\begin{block}{#2}\inputminted{latex}{code/#3.tex}\end{block}}}
+\newcounter{code}
+\renewcommand{\thecode}{\arabic{code}.~}
+\newcommand{\code}[3]{\only<#1>{\stepcounter{code}\begin{block}{\thecode#2}\footnotesize\inputminted{latex}{code/#3.tex}\end{block}}}
+
+\usepackage{tikz}
+
 \author{Maïeul Rouquette}
 \date{Rencontres \LaTeX\ et SHS}
-\title{Personnaliser les styles biblatex}
+\title{Personnaliser les styles Bib\LaTeX}
 \institute{Université de Lausanne --- IRSB}
 
 \usetheme{Darmstadt}
@@ -39,5 +45,19 @@
 				\item<6->[.lbx] Chaînes de langues
 			\end{description}
 	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Plusieurs niveaux d'adaptation}
+	\begin{overprint}
+		\only<1>{\footnotesize\input{schemas/stylesbiblio.tex}}
+		\code{2}{Commandes Bib\LaTeX\ à redéfinir}{commandes}
+		\code{3}{Chaînes de langues à redéfinir}{chaines}
+		\code{4}{Formatage des champs}{champs}
+		\code{5}{Formatage des noms}{noms}
+		\code{6}{Formatage des listes}{listes}
+		\code{7}{Macros}{macros}
+		\code{8}{Drivers}{drivers}
+	\end{overprint}
 \end{frame}
 \end{document}
