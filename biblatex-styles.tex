@@ -1,13 +1,22 @@
 \documentclass{beamer}
-\usepackage{fontspec,polyglossia,xunicode,hyperref}
+\usepackage{fontspec,polyglossia,xunicode,hyperref,csquotes}
 \setmainfont{Linux Libertine O}
 \setmainlanguage{french}
 \setotherlanguage{english}
 \usepackage{minted}
 \newcounter{code}
 \renewcommand{\thecode}{\arabic{code}.~}
-\newcommand{\code}[3]{\only<#1>{\\stepcounter{code}\begin{block}{\thecode#2}begin{english}\footnotesize\inputminted{latex}{code/#3.tex}\end{english}\end{block}}}
-
+\newcommand{\code}[3]{%
+	\only<#1>{%
+		\stepcounter{code}%
+		\begin{block}{\thecode#2}%
+			\begin{english}\footnotesize%
+				\inputminted{latex}{code/#3.tex}%
+			\end{english}%
+			\end{block}%
+			}%
+	}
+\newcommand{\alertdesc}[2]{\item[\alert<+>{#1}]#2}
 \usepackage{tikz}
 
 \author{Maïeul Rouquette}
@@ -28,8 +37,8 @@
 \begin{frame}
 	\frametitle{Deux manières différents}
 	\begin{description}
-		\item[\alert<1>{Manière rapide}] Dans un fichier .tex chargé dans le préambule
-		\item[\alert<2>{Manière propre}] Dans un jeu de styles redistribuables : .cbx, .bbx, .lbx
+		\alertdesc{Manière rapide}{Dans un fichier .tex chargé dans le préambule}
+		\alertdesc{Manière propre}{Dans un jeu de styles redistribuables : .cbx, .bbx, .lbx}
 	\end{description}
 \end{frame}
 
@@ -39,14 +48,31 @@
 		\item<1->Dossier texmf-dist/tex/latex/biblatex (dans \TeX Live)
 		\item<2->Type de fichiers :
 			\begin{description}
-				\item<3->[.def] Réglages communs à l'ensemble des styles
-				\item<4->[.bbx] Bibliographie finale
-				\item<5->[.cbx] Styles pour les citations dans le corps du texte (ou en note)
-				\item<6->[.lbx] Chaînes de langues
+				\item<+->[.def] Réglages communs à l'ensemble des styles
+				\item<+->[.bbx] Bibliographie finale
+				\item<+->[.cbx] Styles pour les citations dans le corps du texte (ou en note)
+				\item<+->[.lbx] Chaînes de langues
 			\end{description}
 	\end{enumerate}
 \end{frame}
 
+\begin{frame}
+	\frametitle{Notions de bases}
+	\only<1>{\footnotesize\input{schemas/stylesbiblio.tex}}
+	\only<2-4>{
+		\begin{description}
+			\alertdesc{Driver}{Description du formatage d'un type d'entrée}
+			\alertdesc{Macro}{Sous description de formatage. Bien souvent correspond à une unité}
+		\end{description}
+	}
+	\only<3->{
+		\begin{description}
+			\alertdesc{Name}{Tout champ correspondant à une personne morale ou physique}
+			\alertdesc{List}{Tout champ pouvant contenir des valeurs séparés par \enquote{and} (sauf nom)}
+			\alertdesc{Field}{Tout champ autre que liste et noms}
+		\end{description}
+	}
+\end{frame}
 \begin{frame}
 	\frametitle{Alias}
 	\begin{overprint}
@@ -59,14 +85,13 @@
 \begin{frame}
 	\frametitle{Plusieurs niveaux d'adaptation}
 	\begin{overprint}
-		\only<1>{\footnotesize\input{schemas/stylesbiblio.tex}}
-		\code{2}{Commandes Bib\LaTeX\ à redéfinir}{commandes}
-		\code{3}{Chaînes de langues à redéfinir}{chaines}
-		\code{4}{Formatage des champs}{champs}
-		\code{5}{Formatage des noms}{noms}
-		\code{6}{Formatage des listes}{listes}
-		\code{7}{Macros}{macros}
-		\code{8}{Drivers}{drivers}
+		\code{1}{Commandes Bib\LaTeX\ à redéfinir}{commandes}
+		\code{2}{Chaînes de langues à redéfinir}{chaines}
+		\code{3}{Formatage des champs}{champs}
+		\code{4}{Formatage des noms}{noms}
+		\code{5}{Formatage des listes}{listes}
+		\code{6}{Macros}{macros}
+		\code{7}{Drivers}{drivers}
 	\end{overprint}
 \end{frame}
 \end{document}
