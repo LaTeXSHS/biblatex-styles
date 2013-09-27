@@ -2,11 +2,11 @@
 \usepackage{fontspec,polyglossia,xunicode,hyperref}
 \setmainfont{Linux Libertine O}
 \setmainlanguage{french}
-
+\setotherlanguage{english}
 \usepackage{minted}
 \newcounter{code}
 \renewcommand{\thecode}{\arabic{code}.~}
-\newcommand{\code}[3]{\only<#1>{\stepcounter{code}\begin{block}{\thecode#2}\footnotesize\inputminted{latex}{code/#3.tex}\end{block}}}
+\newcommand{\code}[3]{\only<#1>{\\stepcounter{code}\begin{block}{\thecode#2}begin{english}\footnotesize\inputminted{latex}{code/#3.tex}\end{english}\end{block}}}
 
 \usepackage{tikz}
 
