@@ -19,6 +19,12 @@
 \newcommand{\alertdesc}[2]{\item[\alert<+>{#1}]#2}
 \usepackage{tikz}
 
+\usepackage{biblatex-philologue/biblatex-philologue}
+\bibliography{biblatex-styles.bib}
+\renewbibmacro*{cite}{%
+  \usebibmacro{cite:citepages}%
+    {\usebibmacro{cite:full}}}
+    
 \author{Maïeul Rouquette}
 \date{Rencontres \LaTeX\ et SHS}
 \title{Personnaliser les styles Bib\LaTeX}
@@ -107,5 +113,16 @@
 		\code{Tester si l'entrée est la seule d'un auteur}{ifsingletitle}
 		\only<+>{La liste est longue \ldot voir la documentation}
 	\end{overprint}
+\end{frame}
+\begin{frame}
+	\frametitle{Pour aller plus loins\ldots}
+	\begin{itemize}
+		\item<+->\cite{biblatex_doc}
+		\item<+->Un peu de narcissisme :
+		\begin{itemize}
+			\item\cite{Rouquette2012}
+			\item\cite{Rouquette_geek_biblatex}
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 \end{document}
