@@ -7,11 +7,11 @@
 \newcounter{code}
 \renewcommand{\thecode}{\arabic{code}.~}
 \newcommand{\code}[3]{%
-	\only<#1>{%
+	\only<+>{%
 		\stepcounter{code}%
-		\begin{block}{\thecode#2}%
+		\begin{block}{\thecode#1}%
 			\begin{english}\footnotesize%
-				\inputminted{latex}{code/#3.tex}%
+				\inputminted{latex}{code/#2.tex}%
 			\end{english}%
 			\end{block}%
 			}%
@@ -76,22 +76,22 @@
 \begin{frame}
 	\frametitle{Alias}
 	\begin{overprint}
-		\code{1}{Entre fichiers}{alias-fichier}
-		\code{2}{Entre formatage de champs, noms, listes}{alias-champ-formatage}
-		\code{3}{Entre formatage de type}{alias-type-formatage}
-		\code{4}{Entre affection de de type champs (Biber)}{alias-affectation}
+		\code{Entre fichiers}{alias-fichier}
+		\code{Entre formatage de champs, noms, listes}{alias-champ-formatage}
+		\code{Entre formatage de type}{alias-type-formatage}
+		\code{Entre affection de de type champs (Biber)}{alias-affectation}
 	\end{overprint}
 \end{frame}
 \begin{frame}
 	\frametitle{Plusieurs niveaux d'adaptation}
 	\begin{overprint}
-		\code{1}{Commandes Bib\LaTeX\ à redéfinir}{commandes}
-		\code{2}{Chaînes de langues à redéfinir}{chaines}
-		\code{3}{Formatage des champs}{champs}
-		\code{4}{Formatage des noms}{noms}
-		\code{5}{Formatage des listes}{listes}
-		\code{6}{Macros}{macros}
-		\code{7}{Drivers}{drivers}
+		\code{Commandes Bib\LaTeX\ à redéfinir}{commandes}
+		\code{Chaînes de langues à redéfinir}{chaines}
+		\code{Formatage des champs}{champs}
+		\code{Formatage des noms}{noms}
+		\code{Formatage des listes}{listes}
+		\code{Macros}{macros}
+		\code{Drivers}{drivers}
 	\end{overprint}
 \end{frame}
 \end{document}
